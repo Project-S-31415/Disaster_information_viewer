@@ -1,0 +1,483 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{31197F85-90F7-456E-8DE0-A9FF82B0E1CE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Disaster_information_viewer</RootNamespace>
+    <AssemblyName>Disaster_information_viewer</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AngleSharp, Version=0.16.1.0, Culture=neutral, PublicKeyToken=e83494dcdc6d31ea, processorArchitecture=MSIL">
+      <HintPath>..\packages\AngleSharp.0.16.1\lib\net472\AngleSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="CoreTweet, Version=1.0.0.483, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CoreTweet.1.0.0.483\lib\net45\CoreTweet.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Registry, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Win32.Registry.4.7.0\lib\net461\Microsoft.Win32.Registry.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio, Version=2.0.1.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.2.0.1\lib\netstandard2.0\NAudio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Asio, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Asio.2.0.0\lib\netstandard2.0\NAudio.Asio.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Core.2.0.0\lib\netstandard2.0\NAudio.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Midi, Version=2.0.1.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Midi.2.0.1\lib\netstandard2.0\NAudio.Midi.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.Wasapi, Version=2.0.0.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.Wasapi.2.0.0\lib\netstandard2.0\NAudio.Wasapi.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WinForms, Version=2.0.1.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.WinForms.2.0.1\lib\net472\NAudio.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="NAudio.WinMM, Version=2.0.1.0, Culture=neutral, PublicKeyToken=e279aa5131008a41, processorArchitecture=MSIL">
+      <HintPath>..\packages\NAudio.WinMM.2.0.1\lib\netstandard2.0\NAudio.WinMM.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.AccessControl, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.4.7.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.4.7.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.5.0.0\lib\net461\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DIV_Earthquakes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DIV_Earthquakes.Designer.cs">
+      <DependentUpon>DIV_Earthquakes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DIV_EEW.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DIV_EEW.Designer.cs">
+      <DependentUpon>DIV_EEW.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DIV_Kyoshin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DIV_Kyoshin.Designer.cs">
+      <DependentUpon>DIV_Kyoshin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DIV_Tsunami.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DIV_Tsunami.Designer.cs">
+      <DependentUpon>DIV_Tsunami.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Json_EEWiedred.cs" />
+    <Compile Include="Json_EEWNIED.cs" />
+    <Compile Include="Json_P2Pquake.cs" />
+    <Compile Include="Json_Other.cs" />
+    <Compile Include="Json_P2Pquake_tsunami.cs" />
+    <Compile Include="Json_USGS.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting.Designer.cs">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Settings.cs" />
+    <EmbeddedResource Include="DIV_Earthquakes.resx">
+      <DependentUpon>DIV_Earthquakes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DIV_EEW.resx">
+      <DependentUpon>DIV_EEW.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DIV_Kyoshin.resx">
+      <DependentUpon>DIV_Kyoshin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DIV_Tsunami.resx">
+      <DependentUpon>DIV_Tsunami.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Setting.resx">
+      <DependentUpon>Setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\basemap.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quakeback0.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quakeback1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quakeback3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quakeback4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quakeback5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quakeback6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quakeback7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quakeback8.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quakeback9.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\quakeback2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tsunami.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Area\101.png" />
+    <Content Include="Resources\Area\102.png" />
+    <Content Include="Resources\Area\103.png" />
+    <Content Include="Resources\Area\104.png" />
+    <Content Include="Resources\Area\105.png" />
+    <Content Include="Resources\Area\106.png" />
+    <Content Include="Resources\Area\107.png" />
+    <Content Include="Resources\Area\108.png" />
+    <Content Include="Resources\Area\109.png" />
+    <Content Include="Resources\Area\110.png" />
+    <Content Include="Resources\Area\111.png" />
+    <Content Include="Resources\Area\112.png" />
+    <Content Include="Resources\Area\113.png" />
+    <Content Include="Resources\Area\114.png" />
+    <Content Include="Resources\Area\115.png" />
+    <Content Include="Resources\Area\116.png" />
+    <Content Include="Resources\Area\117.png" />
+    <Content Include="Resources\Area\118.png" />
+    <Content Include="Resources\Area\119.png" />
+    <Content Include="Resources\Area\120.png" />
+    <Content Include="Resources\Area\121.png" />
+    <Content Include="Resources\Area\122.png" />
+    <Content Include="Resources\Area\123.png" />
+    <Content Include="Resources\Area\124.png" />
+    <Content Include="Resources\Area\125.png" />
+    <Content Include="Resources\Area\126.png" />
+    <Content Include="Resources\Area\127.png" />
+    <Content Include="Resources\Area\128.png" />
+    <Content Include="Resources\Area\129.png" />
+    <Content Include="Resources\Area\130.png" />
+    <Content Include="Resources\Area\131.png" />
+    <Content Include="Resources\Area\132.png" />
+    <Content Include="Resources\Area\133.png" />
+    <Content Include="Resources\Area\134.png" />
+    <Content Include="Resources\Area\135.png" />
+    <Content Include="Resources\Area\136.png" />
+    <Content Include="Resources\Area\137.png" />
+    <Content Include="Resources\Area\138.png" />
+    <Content Include="Resources\Area\139.png" />
+    <Content Include="Resources\Area\140.png" />
+    <Content Include="Resources\Area\141.png" />
+    <Content Include="Resources\Area\142.png" />
+    <Content Include="Resources\Area\143.png" />
+    <Content Include="Resources\Area\144.png" />
+    <Content Include="Resources\Area\145.png" />
+    <Content Include="Resources\Area\146.png" />
+    <Content Include="Resources\Area\147.png" />
+    <Content Include="Resources\Area\148.png" />
+    <Content Include="Resources\Area\149.png" />
+    <Content Include="Resources\Area\150.png" />
+    <Content Include="Resources\Area\151.png" />
+    <Content Include="Resources\Area\152.png" />
+    <Content Include="Resources\Area\153.png" />
+    <Content Include="Resources\Area\154.png" />
+    <Content Include="Resources\Area\155.png" />
+    <Content Include="Resources\Area\156.png" />
+    <Content Include="Resources\Area\157.png" />
+    <Content Include="Resources\Area\158.png" />
+    <Content Include="Resources\Area\159.png" />
+    <Content Include="Resources\Area\160.png" />
+    <Content Include="Resources\Area\161.png" />
+    <Content Include="Resources\Area\162.png" />
+    <Content Include="Resources\Area\163.png" />
+    <Content Include="Resources\Area\164.png" />
+    <Content Include="Resources\Area\165.png" />
+    <Content Include="Resources\Area\166.png" />
+    <Content Include="Resources\Area\201.png" />
+    <Content Include="Resources\Area\202.png" />
+    <Content Include="Resources\Area\203.png" />
+    <Content Include="Resources\Area\204.png" />
+    <Content Include="Resources\Area\205.png" />
+    <Content Include="Resources\Area\206.png" />
+    <Content Include="Resources\Area\207.png" />
+    <Content Include="Resources\Area\208.png" />
+    <Content Include="Resources\Area\209.png" />
+    <Content Include="Resources\Area\210.png" />
+    <Content Include="Resources\Area\211.png" />
+    <Content Include="Resources\Area\212.png" />
+    <Content Include="Resources\Area\213.png" />
+    <Content Include="Resources\Area\214.png" />
+    <Content Include="Resources\Area\215.png" />
+    <Content Include="Resources\Area\216.png" />
+    <Content Include="Resources\Area\217.png" />
+    <Content Include="Resources\Area\218.png" />
+    <Content Include="Resources\Area\219.png" />
+    <Content Include="Resources\Area\220.png" />
+    <Content Include="Resources\Area\221.png" />
+    <Content Include="Resources\Area\222.png" />
+    <Content Include="Resources\Area\223.png" />
+    <Content Include="Resources\Area\224.png" />
+    <Content Include="Resources\Area\225.png" />
+    <Content Include="Resources\Area\226.png" />
+    <Content Include="Resources\Area\227.png" />
+    <Content Include="Resources\Area\228.png" />
+    <Content Include="Resources\Area\229.png" />
+    <Content Include="Resources\Area\230.png" />
+    <Content Include="Resources\Area\231.png" />
+    <Content Include="Resources\Area\232.png" />
+    <Content Include="Resources\Area\233.png" />
+    <Content Include="Resources\Area\234.png" />
+    <Content Include="Resources\Area\235.png" />
+    <Content Include="Resources\Area\236.png" />
+    <Content Include="Resources\Area\237.png" />
+    <Content Include="Resources\Area\238.png" />
+    <Content Include="Resources\Area\239.png" />
+    <Content Include="Resources\Area\240.png" />
+    <Content Include="Resources\Area\241.png" />
+    <Content Include="Resources\Area\242.png" />
+    <Content Include="Resources\Area\243.png" />
+    <Content Include="Resources\Area\244.png" />
+    <Content Include="Resources\Area\245.png" />
+    <Content Include="Resources\Area\246.png" />
+    <Content Include="Resources\Area\247.png" />
+    <Content Include="Resources\Area\248.png" />
+    <Content Include="Resources\Area\249.png" />
+    <Content Include="Resources\Area\250.png" />
+    <Content Include="Resources\Area\251.png" />
+    <Content Include="Resources\Area\252.png" />
+    <Content Include="Resources\Area\253.png" />
+    <Content Include="Resources\Area\254.png" />
+    <Content Include="Resources\Area\255.png" />
+    <Content Include="Resources\Area\256.png" />
+    <Content Include="Resources\Area\257.png" />
+    <Content Include="Resources\Area\258.png" />
+    <Content Include="Resources\Area\259.png" />
+    <Content Include="Resources\Area\260.png" />
+    <Content Include="Resources\Area\261.png" />
+    <Content Include="Resources\Area\262.png" />
+    <Content Include="Resources\Area\263.png" />
+    <Content Include="Resources\Area\264.png" />
+    <Content Include="Resources\Area\265.png" />
+    <Content Include="Resources\Area\266.png" />
+    <Content Include="Resources\Area\301.png" />
+    <Content Include="Resources\Area\302.png" />
+    <Content Include="Resources\Area\303.png" />
+    <Content Include="Resources\Area\304.png" />
+    <Content Include="Resources\Area\305.png" />
+    <Content Include="Resources\Area\306.png" />
+    <Content Include="Resources\Area\307.png" />
+    <Content Include="Resources\Area\308.png" />
+    <Content Include="Resources\Area\309.png" />
+    <Content Include="Resources\Area\310.png" />
+    <Content Include="Resources\Area\311.png" />
+    <Content Include="Resources\Area\312.png" />
+    <Content Include="Resources\Area\313.png" />
+    <Content Include="Resources\Area\314.png" />
+    <Content Include="Resources\Area\315.png" />
+    <Content Include="Resources\Area\316.png" />
+    <Content Include="Resources\Area\317.png" />
+    <Content Include="Resources\Area\318.png" />
+    <Content Include="Resources\Area\319.png" />
+    <Content Include="Resources\Area\320.png" />
+    <Content Include="Resources\Area\321.png" />
+    <Content Include="Resources\Area\322.png" />
+    <Content Include="Resources\Area\323.png" />
+    <Content Include="Resources\Area\324.png" />
+    <Content Include="Resources\Area\325.png" />
+    <Content Include="Resources\Area\326.png" />
+    <Content Include="Resources\Area\327.png" />
+    <Content Include="Resources\Area\328.png" />
+    <Content Include="Resources\Area\329.png" />
+    <Content Include="Resources\Area\330.png" />
+    <Content Include="Resources\Area\331.png" />
+    <Content Include="Resources\Area\332.png" />
+    <Content Include="Resources\Area\333.png" />
+    <Content Include="Resources\Area\334.png" />
+    <Content Include="Resources\Area\335.png" />
+    <Content Include="Resources\Area\336.png" />
+    <Content Include="Resources\Area\337.png" />
+    <Content Include="Resources\Area\338.png" />
+    <Content Include="Resources\Area\339.png" />
+    <Content Include="Resources\Area\340.png" />
+    <Content Include="Resources\Area\341.png" />
+    <Content Include="Resources\Area\342.png" />
+    <Content Include="Resources\Area\343.png" />
+    <Content Include="Resources\Area\344.png" />
+    <Content Include="Resources\Area\345.png" />
+    <Content Include="Resources\Area\346.png" />
+    <Content Include="Resources\Area\347.png" />
+    <Content Include="Resources\Area\348.png" />
+    <Content Include="Resources\Area\349.png" />
+    <Content Include="Resources\Area\350.png" />
+    <Content Include="Resources\Area\351.png" />
+    <Content Include="Resources\Area\352.png" />
+    <Content Include="Resources\Area\353.png" />
+    <Content Include="Resources\Area\354.png" />
+    <Content Include="Resources\Area\355.png" />
+    <Content Include="Resources\Area\356.png" />
+    <Content Include="Resources\Area\357.png" />
+    <Content Include="Resources\Area\358.png" />
+    <Content Include="Resources\Area\359.png" />
+    <Content Include="Resources\Area\360.png" />
+    <Content Include="Resources\Area\361.png" />
+    <Content Include="Resources\Area\362.png" />
+    <Content Include="Resources\Area\363.png" />
+    <Content Include="Resources\Area\364.png" />
+    <Content Include="Resources\Area\365.png" />
+    <Content Include="Resources\Area\366.png" />
+    <Content Include="Resources\Area\401.png" />
+    <Content Include="Resources\Area\402.png" />
+    <Content Include="Resources\Area\403.png" />
+    <Content Include="Resources\Area\404.png" />
+    <Content Include="Resources\Area\405.png" />
+    <Content Include="Resources\Area\406.png" />
+    <Content Include="Resources\Area\407.png" />
+    <Content Include="Resources\Area\408.png" />
+    <Content Include="Resources\Area\409.png" />
+    <Content Include="Resources\Area\410.png" />
+    <Content Include="Resources\Area\411.png" />
+    <Content Include="Resources\Area\412.png" />
+    <Content Include="Resources\Area\413.png" />
+    <Content Include="Resources\Area\414.png" />
+    <Content Include="Resources\Area\415.png" />
+    <Content Include="Resources\Area\416.png" />
+    <Content Include="Resources\Area\417.png" />
+    <Content Include="Resources\Area\418.png" />
+    <Content Include="Resources\Area\419.png" />
+    <Content Include="Resources\Area\420.png" />
+    <Content Include="Resources\Area\421.png" />
+    <Content Include="Resources\Area\422.png" />
+    <Content Include="Resources\Area\423.png" />
+    <Content Include="Resources\Area\424.png" />
+    <Content Include="Resources\Area\425.png" />
+    <Content Include="Resources\Area\426.png" />
+    <Content Include="Resources\Area\427.png" />
+    <Content Include="Resources\Area\428.png" />
+    <Content Include="Resources\Area\429.png" />
+    <Content Include="Resources\Area\430.png" />
+    <Content Include="Resources\Area\431.png" />
+    <Content Include="Resources\Area\432.png" />
+    <Content Include="Resources\Area\433.png" />
+    <Content Include="Resources\Area\434.png" />
+    <Content Include="Resources\Area\435.png" />
+    <Content Include="Resources\Area\436.png" />
+    <Content Include="Resources\Area\437.png" />
+    <Content Include="Resources\Area\438.png" />
+    <Content Include="Resources\Area\439.png" />
+    <Content Include="Resources\Area\440.png" />
+    <Content Include="Resources\Area\441.png" />
+    <Content Include="Resources\Area\442.png" />
+    <Content Include="Resources\Area\443.png" />
+    <Content Include="Resources\Area\444.png" />
+    <Content Include="Resources\Area\445.png" />
+    <Content Include="Resources\Area\446.png" />
+    <Content Include="Resources\Area\447.png" />
+    <Content Include="Resources\Area\448.png" />
+    <Content Include="Resources\Area\449.png" />
+    <Content Include="Resources\Area\450.png" />
+    <Content Include="Resources\Area\451.png" />
+    <Content Include="Resources\Area\452.png" />
+    <Content Include="Resources\Area\453.png" />
+    <Content Include="Resources\Area\454.png" />
+    <Content Include="Resources\Area\455.png" />
+    <Content Include="Resources\Area\456.png" />
+    <Content Include="Resources\Area\457.png" />
+    <Content Include="Resources\Area\458.png" />
+    <Content Include="Resources\Area\459.png" />
+    <Content Include="Resources\Area\460.png" />
+    <Content Include="Resources\Area\461.png" />
+    <Content Include="Resources\Area\462.png" />
+    <Content Include="Resources\Area\463.png" />
+    <Content Include="Resources\Area\464.png" />
+    <Content Include="Resources\Area\465.png" />
+    <Content Include="Resources\Area\466.png" />
+    <Content Include="Resources\Area\null.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
