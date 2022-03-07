@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // アセンブリに関する一般情報は以下の属性セットをとおして制御されます。
@@ -8,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("Disaster_information_viewer")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("Prolect-S Develop")]
+[assembly: AssemblyCompany("Prolect-S")]
 [assembly: AssemblyProduct("Disaster_information_viewer")]
-[assembly: AssemblyCopyright("Copyright ©Project-S  2022")]
+[assembly: AssemblyCopyright("Copyright © 2022 Project-S@31415")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -33,4 +32,4 @@ using System.Runtime.InteropServices;
 // 既定値にすることができます:
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("0.4.8.0")]
+[assembly: AssemblyFileVersion("1.0.0.1")]
